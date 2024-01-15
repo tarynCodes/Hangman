@@ -1,0 +1,6 @@
+# Generate a random word
+# Generate as many blanks as the word
+# Ask user to guess letter
+# If correct -> replace blank with letter If incorrect -> draw a piece of hangman
+# Is hangman compete? -> yes => game over -> no => repeat steps from asking to guess letter
+# Are all the blanks filled? -> yes => game over -> no => repeat steps from asking to guess letter
