@@ -13,7 +13,7 @@ display = []
 for _ in chosen_word:
     display += "_"
 
-while "_" in display:
+while not end_of_game:
     guess = input("Guess a letter: ").lower()
 
     if guess in display:
@@ -25,11 +25,13 @@ while "_" in display:
             display[position] = letter
 
     if guess not in chosen_word:
-        print(f"The letter {guess} is not in the word, you lose a life :(")
         lives -= 1
+        print(f"The letter {guess} is not in the word, you lose a life :(")
+
+
         if lives == 0:
             end_of_game = True
-            print("You Lose!")
+            print("Sorry, you ran out of lives! You Lose!")
 
     print(f"{' '.join(display)}")
 
