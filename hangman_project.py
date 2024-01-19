@@ -2,6 +2,7 @@
 import random
 import hangman_art
 import hangman_words
+import os
 
 print(hangman_art.logo)
 end_of_game = False
@@ -16,6 +17,8 @@ for _ in chosen_word:
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
 
+    os.system('clear' if os.name == 'posix' else 'cls')
+
     if guess in display:
         print(f"You've already used the letter {guess}")
 
@@ -28,10 +31,10 @@ while not end_of_game:
         lives -= 1
         print(f"The letter {guess} is not in the word, you lose a life :(")
 
-
         if lives == 0:
             end_of_game = True
             print("Sorry, you ran out of lives! You Lose!")
+            print(f"The word was {chosen_word}")
 
     print(f"{' '.join(display)}")
 
@@ -40,3 +43,4 @@ while not end_of_game:
         print("You've won!")
 
     print(hangman_art.stages[lives])
+
