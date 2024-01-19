@@ -9,6 +9,7 @@ end_of_game = False
 chosen_word = random.choice(hangman_words.word_list)
 
 lives = 6
+used_letters = ""
 
 display = []
 for _ in chosen_word:
@@ -16,6 +17,8 @@ for _ in chosen_word:
 
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
+
+    used_letters += guess + ", "
 
     os.system('clear' if os.name == 'posix' else 'cls')
 
@@ -26,6 +29,7 @@ while not end_of_game:
         letter = chosen_word[position]
         if letter == guess:
             display[position] = letter
+
 
     if guess not in chosen_word:
         lives -= 1
@@ -43,4 +47,5 @@ while not end_of_game:
         print("You've won!")
 
     print(hangman_art.stages[lives])
+    print(f"You have used these letters:  {''.join(used_letters)}")
 
