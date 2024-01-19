@@ -1,66 +1,10 @@
 # Step 1
 import random
-
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
+import hangman_art
+import hangman_words
 
 end_of_game = False
-word_list = ["aardvark", "baboon", "camel"]
-chosen_word = random.choice(word_list)
+chosen_word = random.choice(hangman_words.word_list)
 
 lives = 6
 
@@ -88,4 +32,4 @@ while "_" in display:
         end_of_game = True
         print("You've won!")
 
-    print(stages[lives])
+    print(hangman_art.stages[lives])
